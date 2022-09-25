@@ -9,7 +9,7 @@ const ingredients = [
 
 const listEl = document.querySelector('#ingredients');
 
-const addItemsInList = (list, items) => {
+const onListAddItems = (list, items) => {
   const itemsArr = [];
 
   items.map(item => {
@@ -22,5 +22,5 @@ const addItemsInList = (list, items) => {
   list.append(...itemsArr);
 }
 
-addItemsInList(listEl, ingredients);
+onListAddItems(listEl, ingredients);
 
