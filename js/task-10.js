@@ -2,60 +2,51 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-
 const inputEl = document.querySelector('[type="number"]');
-const btnCreateEl = document.querySelector('[data-create]');
-const btnDestroyEl = document.querySelector('[data-destroy]');
+const btnCreateEl = document.querySelector("[data-create]");
+const btnDestroyEl = document.querySelector("[data-destroy]");
+const boxesEl = document.querySelector("#boxes");
 
-const boxesEl = document.querySelector('#boxes');
+btnCreateEl.addEventListener("click", createBoxes);
+btnDestroyEl.addEventListener("click", destroyBoxes);
 
-btnCreateEl.addEventListener('click', ()=> {
+function createBoxes(event, amount = inputEl.value) {
   const widthBoxe = 30;
   const heightBoxe = 30;
-
   const boxes = [];
 
-  if (inputEl.value) {
-    for (let index = 0; index < inputEl.value; index++) {
-    const boxe = document.createElement('div')
-    boxe.style.width = `${widthBoxe + (10 * index)}px`;
-    boxe.style.height = `${heightBoxe + (10 * index)}px`;
-    boxe.style.backgroundColor = getRandomHexColor();
+  if (amount) {
+    for (let index = 0; index < amount; index++) {
+      const boxe = document.createElement("div");
+      boxe.style.width = `${widthBoxe + 10 * index}px`;
+      boxe.style.height = `${heightBoxe + 10 * index}px`;
+      boxe.style.backgroundColor = getRandomHexColor();
 
-    boxes.push(boxe);
-  }
+      boxes.push(boxe);
+    }
   } else {
-    return alert('sadadssa');
+    return alert("введіть число");
   }
-  
 
-  console.log(boxes);
   boxesEl.append(...boxes);
+}
 
-});
-
-btnDestroyEl.addEventListener('click', () => {
-  [...boxesEl.children].map(child => child.remove())
+function destroyBoxes() {
+  [...boxesEl.children].map((child) => child.remove());
   inputEl.value = 0;
-});
+}
 
-
-
-// btnCreateEl.addEventListener('click', createBoxes(inputEl.value))
-// btnDestroyEl.addEventListener('click', destroyBoxes());
-
-
-// function createBoxes(amount) {
+// btnCreateEl.addEventListener('click', ()=> {
 //   const widthBoxe = 30;
 //   const heightBoxe = 30;
 
-//   const boxes4 = [];
+//   const boxes = [];
 
-//   if (amount) {
-//     for (let index = 0; index < amount; index++) {
+//   if (inputEl.value) {
+//     for (let index = 0; index < inputEl.value; index++) {
 //     const boxe = document.createElement('div')
-//     boxe.style.width = widthBoxe + (10 * index);
-//     boxe.style.height = heightBoxe + (10 * index);
+//     boxe.style.width = `${widthBoxe + (10 * index)}px`;
+//     boxe.style.height = `${heightBoxe + (10 * index)}px`;
 //     boxe.style.backgroundColor = getRandomHexColor();
 
 //     boxes.push(boxe);
@@ -63,15 +54,13 @@ btnDestroyEl.addEventListener('click', () => {
 //   } else {
 //     return alert('sadadssa');
 //   }
-  
 
-//   console.log('boxes4');
-//   boxesEl.append(...boxes4);
+//   console.log(boxes);
+//   boxesEl.append(...boxes);
 
-// }
+// });
 
-// function destroyBoxes() {
-//   [...boxesEl.children].map(child => child.remove());
-//  inputEl.value = 0;
-// }
-
+// btnDestroyEl.addEventListener('click', () => {
+//   [...boxesEl.children].map(child => child.remove())
+//   inputEl.value = 0;
+// });
