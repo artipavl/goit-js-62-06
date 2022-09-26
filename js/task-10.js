@@ -15,7 +15,7 @@ function createBoxes(event, amount = inputEl.value) {
   const heightBoxe = 30;
   const boxes = [];
 
-  if (amount) {
+  if (amount > 0) {
     for (let index = 0; index < amount; index++) {
       const boxe = document.createElement("div");
       boxe.style.width = `${widthBoxe + 10 * index}px`;

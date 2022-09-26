@@ -15,8 +15,6 @@ const images = [
 
 const galleryEl = document.querySelector(".gallery");
 
-console.log(galleryEl);
-
 const itemGallery = images
   .map(
     ({ url, alt }) => `<li><img alt='${alt}' src='${url}' width='300'/></li>`
@@ -25,7 +23,7 @@ const itemGallery = images
 
 galleryEl.insertAdjacentHTML("afterbegin", itemGallery);
 
-galleryEl.style.display = 'flex';
-galleryEl.style.gap = '30px';
-galleryEl.style.listStyle = 'none';
-galleryEl.style.alignItems = 'center';
+galleryEl.style.display = "flex";
+galleryEl.style.gap = "30px";
+galleryEl.style.listStyle = "none";
+galleryEl.style.alignItems = "center";
