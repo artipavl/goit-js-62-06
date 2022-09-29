@@ -25,5 +25,3 @@ function onFormSubmit(event) {
 
   event.currentTarget.reset();
 }
-
-subBtnEl.addEventListener("click", onBattonClick);
