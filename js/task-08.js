@@ -10,16 +10,16 @@ function onFormSubmit(event) {
 
   const formElement = event.currentTarget.elements;
 
+
+  if (!formElement.email.value || !formElement.password.value) {
+     alert("Заповніть всі поля");
+    return;
+  }
+
   const userData = {
     email: formElement.email.value,
     password: formElement.password.value,
   };
-
-  // const userData = {};
-  // const formData = new FormData(event.currentTarget);
-  // formData.forEach((x, y) => {
-  //     userData[y] = x;
-  // })
 
   console.log(userData);
 
@@ -27,12 +27,3 @@ function onFormSubmit(event) {
 }
 
 subBtnEl.addEventListener("click", onBattonClick);
-
-function onBattonClick(event) {
-  if (inputEmainEl.value == false) {
-    return alert("Заповніть поле email");
-  }
-  if (inputPasswordEl.value == false) {
-    return alert("Заповніть поле password");
-  }
-}
