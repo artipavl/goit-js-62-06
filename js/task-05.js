@@ -12,7 +12,7 @@ inputEl.addEventListener("input", addName);
 // }
 
 function addName(event) {
-  event.currentTarget.value
+  event.currentTarget.value.trim()
     ? (nameEl.textContent = event.currentTarget.value)
     : (nameEl.textContent = "Anonymous");
 }
